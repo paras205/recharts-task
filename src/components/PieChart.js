@@ -4,7 +4,14 @@ import { PieChart, ResponsiveContainer, Pie, Legend, Cell } from "recharts";
 const PieChartComponent = ({ data }) => {
   const COLORS = ["#00C49F", "#FFBB28"];
   return (
-    <div style={{ width: 800, height: 300 }}>
+    <div
+      style={{
+        width: 800,
+        height: 300,
+        borderBottom: "1px solid #ddd",
+        paddingBottom: 10
+      }}
+    >
       <div style={{ width: "100%", height: 300 }}>
         <ResponsiveContainer>
           <PieChart align="center">

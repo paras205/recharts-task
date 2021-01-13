@@ -4,7 +4,7 @@ const initialState = {
   organizationList: []
 };
 
-export default function (state = initialState, action) {
+const organizationReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_ORGANIZATION_LIST: {
       return {
@@ -15,4 +15,5 @@ export default function (state = initialState, action) {
     default:
       return state;
   }
-}
+};
+export default organizationReducer;

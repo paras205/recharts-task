@@ -4,7 +4,7 @@ const initialState = {
   projectList: []
 };
 
-export default function (state = initialState, action) {
+const projectReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PROJECTS_LIST: {
       return {
@@ -15,4 +15,5 @@ export default function (state = initialState, action) {
     default:
       return state;
   }
-}
+};
+export default projectReducer;
