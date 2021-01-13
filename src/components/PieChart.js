@@ -3,6 +3,39 @@ import { PieChart, ResponsiveContainer, Pie, Legend, Cell } from "recharts";
 
 const PieChartComponent = ({ data }) => {
   const COLORS = ["#00C49F", "#FFBB28"];
+  const renderLegend = (props) => {
+    const { payload } = props;
+    return (
+      <ul
+        style={{
+          display: "flex",
+          alignItems: "center",
+          listStyle: "none",
+          textAlign: "center"
+        }}
+      >
+        {payload.map((entry, index) => {
+          return (
+            <li
+              key={`item-${index}`}
+              style={{ color: "#555", paddingRight: 20 }}
+            >
+              <span
+                style={{
+                  backgroundColor: entry.color,
+                  width: 10,
+                  height: 10,
+                  display: "inline-block",
+                  marginRight: 5
+                }}
+              ></span>
+              {entry.value}
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
   return (
     <div
       style={{
@@ -26,7 +59,7 @@ const PieChartComponent = ({ data }) => {
                 <Cell key={index} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
-            <Legend align="center" />
+            <Legend align="center" content={renderLegend} />
           </PieChart>
         </ResponsiveContainer>
       </div>
